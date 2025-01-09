@@ -116,6 +116,7 @@ func dataSourceCloudflareZoneRead(ctx context.Context, d *schema.ResourceData, m
 	d.Set("status", zone.Status)
 	d.Set("paused", zone.Paused)
 	d.Set("plan", zone.Plan.Name)
+	d.Set("type", zone.Type)
 
 	if err := d.Set("name_servers", zone.NameServers); err != nil {
 		return diag.FromErr(fmt.Errorf("failed to set name_servers attribute: %w", err))
